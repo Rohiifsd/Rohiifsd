@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+  
+    <bean id="e1" class="com.excelr.model.Engine" scope="prototype">
+    	<constructor-arg value="25"></constructor-arg>
+    	<constructor-arg value="Petrol"></constructor-arg>
+    	<constructor-arg value="2500"></constructor-arg>
+    </bean>
+    
+    <bean id="eng1" class="com.excelr.model.Engine" >
+    	<constructor-arg value="15"></constructor-arg>
+    	<constructor-arg value="Diesel"></constructor-arg>
+    	<constructor-arg value="1500"></constructor-arg>
+    </bean> 
+  
+    <bean id="e3" class="com.excelr.model.Engine">
+    	<constructor-arg value="10"></constructor-arg>
+    	<constructor-arg value="Hybrid"></constructor-arg>
+    	<constructor-arg value="1000"></constructor-arg>
+    </bean>
+    
+     <bean id="g1" class="com.excelr.model.Gear">
+      <property name="gearType">
+      	<value>Manual</value>
+      </property>
+      
+      <property name="gearLever">
+      	<value>6</value>
+      </property>
+      
+      <property name="gearMfgName">
+      	<value>Byd</value>
+      </property>
+     </bean>
+     
+     <bean id="gea1" class="com.excelr.model.Gear" >
+      <property name="gearType">
+      	<value>Automatic</value>
+      </property>
+      
+      <property name="gearLever">
+      	<value>4</value>
+      </property>
+      
+      <property name="gearMfgName">
+      	<value>Honda</value>
+      </property>
+     </bean>
+  
+     <bean id="g3" class="com.excelr.model.Gear" >
+    	<constructor-arg value="5"></constructor-arg>
+    	<constructor-arg value="Reliance"></constructor-arg>
+    	<constructor-arg value="Manual"></constructor-arg>
+    </bean>
+    
+     <bean id="c1" class="com.excelr.model.Car">
+     	<property name="carMfgName">
+     	<value>Toyota</value>
+     	</property>
+     	
+     	<property name="carPrice">
+     	<value>1000</value>
+     	</property>
+     	
+     	<property name="carModelName">
+     	<value>Innova</value>
+     	</property>
+     	
+     	<property name="colour">
+     	<value>White</value>
+     	</property>
+     	
+     	<property name="eng1" ref="e1">
+     	</property>
+     	
+     	<property name="gea1" ref="g1">
+     	</property>
+     </bean>
+     
+     
+     <bean id="c2" class="com.excelr.model.Car" autowire="byName">
+     	<property name="carMfgName">
+     	<value>Honda</value>
+     	</property>
+     	
+     	<property name="carPrice">
+     	<value>700</value>
+     	</property>
+     	
+     	<property name="carModelName">
+     	<value>City</value>
+     	</property>
+     	
+     	<property name="colour">
+     	<value>Grey</value>
+     	</property>	
+     </bean>
+</beans>
